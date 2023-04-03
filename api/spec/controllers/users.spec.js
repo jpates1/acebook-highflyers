@@ -1,14 +1,20 @@
+// Import necessary dependencies
 const app = require("../../app");
 const request = require("supertest");
 require("../mongodb_helper");
 const User = require('../../models/user')
 
+// Begin the tests for the /users route
 describe("/users", () => {
+
+  // Delete all users before each test is run
   beforeEach( async () => {
     await User.deleteMany({});
   });
 
+  // Test that a new user is created with email and password provided
   describe("POST, when email and password are provided", () => {
+    // Test that the response status is 201
     test("the response code is 201", async () => {
       let response = await request(app)
         .post("/users")
@@ -16,6 +22,7 @@ describe("/users", () => {
       expect(response.statusCode).toBe(201)
     })
 
+    // Test that a new user is created with the specified email
     test("a user is created", async () => {
       await request(app)
         .post("/users")
@@ -26,7 +33,9 @@ describe("/users", () => {
     })
   })
 
+  // Test that a new user is not created when password is missing
   describe("POST, when password is missing", () => {
+    // Test that the response status is 400
     test("response code is 400", async () => {
       let response = await request(app)
         .post("/users")
@@ -34,6 +43,7 @@ describe("/users", () => {
       expect(response.statusCode).toBe(400)
     });
 
+    // Test that no new user is created
     test("does not create a user", async () => {
       await request(app)
         .post("/users")
@@ -43,7 +53,9 @@ describe("/users", () => {
     });
   })
   
+  // Test that a new user is not created when email is missing
   describe("POST, when email is missing", () => {
+    // Test that the response status is 400
     test("response code is 400", async () => {
       let response = await request(app)
         .post("/users")
@@ -51,6 +63,7 @@ describe("/users", () => {
       expect(response.statusCode).toBe(400)
     });
 
+    // Test that no new user is created
     test("does not create a user", async () => {
       await request(app)
         .post("/users")
