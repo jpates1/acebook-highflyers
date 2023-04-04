@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { getToken } from '../utils/auth';
-
+// import { getToken } from '../utils/auth';
 
 const CreatePostForm = ({ navigate }) => {
 
