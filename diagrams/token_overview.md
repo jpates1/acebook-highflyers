@@ -80,7 +80,7 @@ models/token_generator.js: This file defines the TokenGenerator class with a jso
 
 routes/tokens.js: This file defines a router for the TokensController module. The router is responsible for handling HTTP requests related to user authentication and JSON Web Tokens. It maps the Create method of the SessionsController to a POST route on the router.
 
-spec/tokens.spec.js: This file contains a test suite for the TokensController module. The suite tests the behavior of the /tokens endpoint, which is responsible for handling user authentication and returning a JSON Web Token.
+spec/controllers/tokens.spec.js: This file contains a test suite for the TokensController module. The suite tests the behavior of the /tokens endpoint, which is responsible for handling user authentication and returning a JSON Web Token.
 
 spec/models/token_generator.spec.js: This file contains a test suite for the TokenGenerator module. The suite tests the behavior of the jsonwebtoken method, which is responsible for generating a JSON Web Token.
 
@@ -92,7 +92,7 @@ models/token_generator.js exports a method that is used by the SessionsControlle
 
 routes/tokens.js maps the Create method of the SessionsController to a POST route on the /tokens endpoint.
 
-spec/tokens.spec.js tests the behavior of the /tokens endpoint by sending HTTP requests to it and checking the response status and JSON Web Token.
+spec/controllers/tokens.spec.js tests the behavior of the /tokens endpoint by sending HTTP requests to it and checking the response status and JSON Web Token.
 
 spec/models/token_generator.spec.js tests the behavior of the jsonwebtoken method by generating a token and decoding its payload to ensure it contains the expected data.
 
