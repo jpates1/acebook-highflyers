@@ -22,12 +22,13 @@ const CreatePostForm = ({ navigate }) => {
     })
 
     if(response.status !== 201) {
-      console.log("yay")
+      console.log("oops")
       navigate('/posts')
     } else {
-      console.log("oop")
+      console.log("yay")
       let data = await response.json()
       window.localStorage.setItem("token", data.token)
+      setToken(window.localStorage.getItem("token"))
       navigate('/posts'); // new post functionality to post here.
     }
   }
@@ -42,6 +43,6 @@ const CreatePostForm = ({ navigate }) => {
         <input id='submit' type="submit" value="Submit" />
       </form>
     );
-}
+}}
 
 export default CreatePostForm;
