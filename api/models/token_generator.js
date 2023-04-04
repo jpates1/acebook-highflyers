@@ -19,4 +19,3 @@ class TokenGenerator {
 
 // Export the TokenGenerator class
 module.exports = TokenGenerator;
-
