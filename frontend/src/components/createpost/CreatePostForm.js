@@ -20,7 +20,7 @@ const CreatePostForm = ({ navigate }) => {
 
       if(response.status !== 201) {
         console.log("oops")
-        navigate('/posts')
+        navigate('/login')
       } else {
         console.log("yay")
         let data = await response.json()
